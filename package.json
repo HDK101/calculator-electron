@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HDK101/electron-project.git"
+    "url": "git+https://github.com/HDK101/calculator-electron.git"
   },
   "keywords": [
     "Electron"
@@ -17,9 +17,9 @@
   "author": "EMKBRO",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HDK101/electron-project/issues"
+    "url": "https://github.com/HDK101/calculator-electron/issues"
   },
-  "homepage": "https://github.com/HDK101/electron-project#readme",
+  "homepage": "https://github.com/HDK101/calculator-electron#readme",
   "devDependencies": {
     "electron": "^7.1.7",
     "mocha": "^7.0.0",
