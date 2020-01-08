@@ -39,6 +39,7 @@
     <div class="div div--type-calculator">
       <div id="display" class="div div--calculator-display"></div>
       <button
+        onclick="calculator.clear()"
         class="button button--type-calculator button--calculator-number button--calculator-operator"
       >
         AC
@@ -50,11 +51,13 @@
         +
       </button>
       <button
+        onclick="calculator.addOperator('-')"
         class="button button--type-calculator button--calculator-number button--calculator-operator"
       >
         -
       </button>
       <button
+        onclick="calculator.addOperator('/')"
         class="button button--type-calculator button--calculator-number button--calculator-operator"
       >
         /
@@ -65,24 +68,40 @@
       >
         1
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(2)"
+        class="button button--type-calculator button--calculator-number"
+      >
         2
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(3)"
+        class="button button--type-calculator button--calculator-number"
+      >
         3
       </button>
       <button
+        onclick="calculator.addOperator('*')"
         class="button button--type-calculator button--calculator-number button--calculator-operator"
       >
         *
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(4)"
+        class="button button--type-calculator button--calculator-number"
+      >
         4
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(5)"
+        class="button button--type-calculator button--calculator-number"
+      >
         5
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(6)"
+        class="button button--type-calculator button--calculator-number"
+      >
         6
       </button>
       <button
@@ -91,16 +110,28 @@
       >
         .
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(7)"
+        class="button button--type-calculator button--calculator-number"
+      >
         7
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(8)"
+        class="button button--type-calculator button--calculator-number"
+      >
         8
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(9)"
+        class="button button--type-calculator button--calculator-number"
+      >
         9
       </button>
-      <button class="button button--type-calculator button--calculator-number">
+      <button
+        onclick="calculator.addDigit(0)"
+        class="button button--type-calculator button--calculator-number"
+      >
         0
       </button>
       <button

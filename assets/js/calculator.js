@@ -13,6 +13,7 @@ class Calculator {
     this.currentNumber = 0;
     this.numbers = [0, 0];
     this.operator = "";
+    document.getElementById("display").innerHTML = "0";
   };
 
   clearDisplay = () => {
@@ -50,6 +51,27 @@ class Calculator {
           this.numbers[0] = sum;
           this.numbers[1] = 0;
           console.log("Sum is: " + sum);
+          break;
+        case "-":
+          const subtraction = this.numbers[0] - this.numbers[1];
+          this.numbers[0] = subtraction;
+          this.numbers[1] = 0;
+          console.log("Subtraction is: " + subtraction);
+          break;
+        case "*":
+          const product = this.numbers[0] * this.numbers[1];
+          this.numbers[0] = product;
+          this.numbers[1] = 0;
+          console.log("Product is: " + product);
+          break;
+        case "/":
+          const division = this.numbers[0] / this.numbers[1];
+          this.numbers[0] = division;
+          this.numbers[1] = 0;
+          console.log("Product is: " + division);
+          break;
+        default:
+          console.log("Invalid operator!");
           break;
       }
     }
