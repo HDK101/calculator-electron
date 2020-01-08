@@ -3,9 +3,11 @@ const path = require("path");
 
 function createWindow() {
   let win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 240,
+    height: 380,
     frame: false,
+    resizable: false,
+    
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
@@ -13,6 +15,8 @@ function createWindow() {
   });
 
   win.loadFile("index.html");
+
+  //win.webContents.openDevTools()
 
   win.on("closed", () => {
     // Dereference the window object, usually you would store windows
