@@ -16,7 +16,7 @@ class Calculator {
   };
 
   clearDisplay = () => {
-    this.display = "";
+    this.display = "0";
   };
 
   addDigit = digit => {
@@ -31,6 +31,7 @@ class Calculator {
     }
 
     display += digitString;
+    document.getElementById("display").innerHTML = display;
     this.display = display;
     console.log(this.display);
   };
@@ -57,6 +58,8 @@ class Calculator {
     this.operator = operator == "=" ? "" : operator;
     this.currentNumber = this.currentNumber == 0 ? 1 : 1;
     this.clearDisplay();
+    /*If operator is equals, then show the current display, otherwise, show the result*/
+    operator == "=" ? document.getElementById("display").innerHTML = this.numbers[0] : document.getElementById("display").innerHTML = this.display;
     console.log(operator, this.operator, this.numbers);
   };
 
