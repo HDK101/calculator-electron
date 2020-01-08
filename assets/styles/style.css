@@ -35,6 +35,8 @@ CLASSES
 }
 .div--calculator-display {
   background-color: white;
+  overflow: hidden;
+  font-size: 24px;
   height: 48px;
   grid-column: 1 / 5;
 }
