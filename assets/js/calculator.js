@@ -21,7 +21,8 @@ class Calculator {
   };
 
   addDigit = digit => {
-    let display = this.display == "0" ? "" : this.display;
+    /*Clears display if the number is zero and the digit isn't .*/
+    let display = this.display == "0" & digit != "." ? "" : this.display;
     const digitString = digit.toString();
     /*Check if display already includes . or digit and display is zero*/
     if (
