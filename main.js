@@ -6,7 +6,7 @@ function createWindow() {
     width: 240,
     height: 380,
     frame: false,
-    resizable: false,
+    //resizable: false,
     
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -16,7 +16,7 @@ function createWindow() {
 
   win.loadFile("index.html");
 
-  //win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   win.on("closed", () => {
     // Dereference the window object, usually you would store windows
