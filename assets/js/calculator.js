@@ -22,7 +22,9 @@ class Calculator {
 
   addDigit = digit => {
     /*Clears display if the number is zero and the digit isn't .*/
-    let display = (this.display == "0") & (digit != ".") ? "" : this.display;
+    let display = this.display;
+    display = (display == "0") & (digit != ".") ? "" : display;
+    
     const digitString = digit.toString();
     /*Check if display already includes . or digit and display is zero*/
     if (
@@ -35,7 +37,7 @@ class Calculator {
     display += digitString;
     document.getElementById("display").innerHTML = display;
     this.display = display;
-    console.log(this.display);
+    console.log(`Current display: %c${this.display}`, "color: blue");
   };
 
   addOperator = op => {
