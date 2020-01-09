@@ -22,7 +22,7 @@ class Calculator {
 
   addDigit = digit => {
     /*Clears display if the number is zero and the digit isn't .*/
-    let display = this.display == "0" & digit != "." ? "" : this.display;
+    let display = (this.display == "0") & (digit != ".") ? "" : this.display;
     const digitString = digit.toString();
     /*Check if display already includes . or digit and display is zero*/
     if (
@@ -38,62 +38,62 @@ class Calculator {
     console.log(this.display);
   };
 
-  addOperator = operator => {
-    const currentOperator = this.operator;
-    this.numbers[this.currentNumber] = Number(this.display);
+  addOperator = op => {
+    let { operator, numbers, display, currentNumber } = this;
 
-    console.log(operator, this.operator, this.numbers);
+    numbers[this.currentNumber] = Number(display);
+
+    console.log(`Added operator: %c${op}`, "color: red");
 
     /*Check is current operator and typed operator exists*/
-    if (currentOperator != null & operator != null) {
-      switch (currentOperator) {
+    if ((operator != "") & (op != "")) {
+      let calculation;
+      const copyNumbers = { ...numbers };
+
+      switch (operator) {
         case "+":
-          const sum = this.numbers[0] + this.numbers[1];
-          this.numbers[0] = sum;
-          this.numbers[1] = 0;
-          console.log("Sum is: " + sum);
+          calculation = numbers[0] + numbers[1];
+          numbers[0] = calculation;
+          console.log(`Sum is: %c${calculation}`, "color: red");
           break;
         case "-":
-          const subtraction = this.numbers[0] - this.numbers[1];
-          this.numbers[0] = subtraction;
-          this.numbers[1] = 0;
-          console.log("Subtraction is: " + subtraction);
+          calculation = numbers[0] - numbers[1];
+          numbers[0] = calculation;
+          console.log(`Subtraction is: %c${calculation}`, "color: red");
           break;
         case "*":
-          const product = this.numbers[0] * this.numbers[1];
-          this.numbers[0] = product;
-          this.numbers[1] = 0;
-          console.log("Product is: " + product);
+          calculation = numbers[0] * numbers[1];
+          numbers[0] = calculation;
+          console.log(`Product is: %c${calculation}`, "color: red");
           break;
         case "/":
-          const division = this.numbers[0] / this.numbers[1];
-          this.numbers[0] = division;
-          this.numbers[1] = 0;
-          console.log("Product is: " + division);
+          calculation = numbers[0] / numbers[1];
+          numbers[0] = calculation;
+          console.log(`Division is: %c${calculation}`, "color: red");
           break;
         default:
-          console.log("Invalid operator!");
+          console.log("%cInvalid operator!", "color: red");
           break;
       }
+      /*Calculation done*/
+      numbers[1] = 0;
+      console.log(`${copyNumbers[0]} ${operator} ${copyNumbers[1]} = ${calculation}`);
     }
 
     /*Set this.operator to any operator that isn't equals, otherwise it may cause problems*/
-    this.operator = operator == "=" ? "" : operator;
-    this.currentNumber = this.currentNumber == 0 ? 1 : 1;
+    currentNumber = currentNumber == 0 ? 1 : 1;
     this.clearDisplay();
+
+    operator = op == "=" ? "" : op;
+
     /*If operator is equals, then show the current display, otherwise, show the result*/
-    operator == "=" ? document.getElementById("display").innerHTML = this.numbers[0] : document.getElementById("display").innerHTML = this.display;
-    console.log(operator, this.operator, this.numbers);
-  };
+    op == "="
+      ? (document.getElementById("display").innerHTML = this.numbers[0])
+      : (document.getElementById("display").innerHTML = this.display);
 
-  calculate = () => {
-    const currentOperator = this.operator;
-
-    switch (currentOperator) {
-      case "+":
-        this.numbers[0] += this.numbers[1];
-        this.numbers[1] = 0;
-        break;
-    }
+    /*Set all properties*/
+    this.operator = operator;
+    this.numbers = numbers;
+    this.currentNumber = currentNumber;
   };
 }
